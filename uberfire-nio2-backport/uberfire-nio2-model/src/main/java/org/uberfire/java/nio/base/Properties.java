@@ -19,11 +19,14 @@ package org.uberfire.java.nio.base;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.XStreamException;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -57,7 +60,16 @@ public class Properties extends HashMap<String, Object> {
     public void store( final OutputStream out,
                        boolean closeOnFinish ) {
         final XStream xstream = new XStream();
-        xstream.toXML( this, out );
+        String encoding = System.getProperty( "file.encoding" );
+        if ( encoding == null ) {
+            encoding = "UTF-8"; //default to use UTF-8 if no encoding is specified
+        }
+        try {
+            xstream.toXML( this, new OutputStreamWriter( out, encoding ) );
+        } catch ( UnsupportedEncodingException e ) {
+            LoggerFactory.getLogger( this.getClass() ).error( "Could not write metadata dot file using '" + encoding + "' encoding. Falling back to the default encoding of the current locale" );
+            xstream.toXML( this, out ); //fallback to using the default encoding of the current locale
+        }
         if ( closeOnFinish ) {
             try {
                 out.close();
