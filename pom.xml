@@ -48,6 +48,19 @@
     </license>
   </licenses>
 
+  <distributionManagement>
+    <repository>
+      <id>scandihealth</id>
+      <name>libs-release</name>
+      <url>http://172.19.201.133:8081/artifactory/libs-release</url>
+    </repository>
+    <snapshotRepository>
+      <id>scandihealth</id>
+      <name>libs-snapshot</name>
+      <url>http://172.19.201.133:8081/artifactory/libs-snapshot</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <properties>
     <!-- IMPORTANT: Do not declare any external dependencies versions here! Declare them in uberfire-parent-with-dependencies. -->
     <uberfire.version>${project.version}</uberfire.version>
