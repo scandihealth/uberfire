@@ -27,7 +27,7 @@
 
   <groupId>org.uberfire</groupId>
   <artifactId>uberfire-parent-metadata</artifactId>
-  <version>${revision}${changelist}</version>
+  <version>${revision}</version>
   <packaging>pom</packaging>
 
   <name>UberFire parent metadata</name>
@@ -62,7 +62,7 @@
   </distributionManagement>
 
   <properties>
-    <revision>0.9.0.csc</revision>
+    <revision>0.9.0.csc${changelist}</revision>
     <changelist>-SNAPSHOT</changelist>
     <!-- IMPORTANT: Do not declare any external dependencies versions here! Declare them in uberfire-parent-with-dependencies. -->
     <uberfire.version>${project.version}</uberfire.version>
@@ -83,6 +83,7 @@
     <!-- Used by maven-enforcer-plugin -->
     <!-- IMPORTANT: JDK8 is needed to build the projects (to support also WildFly 10), but we still do support JDK6/JDK7 for all backend modules. -->
     <jdk.min.version>1.8</jdk.min.version>
+    <maven.enforcer.plugin.version>3.0.0-M3</maven.enforcer.plugin.version>
   </properties>
 
   <repositories>
@@ -115,9 +116,9 @@
   </pluginRepositories>
 
   <scm>
-    <connection>scm:git:git@github.com:uberfire/uberfire.git</connection>
-    <developerConnection>scm:git:git@github.com:uberfire/uberfire.git</developerConnection>
-    <url>https://github.com/uberfire/uberfire</url>
+    <connection>scm:git:git@github.com:scandihealth/uberfire.git</connection>
+    <developerConnection>scm:git:git@github.com:scandihealth/uberfire.git</developerConnection>
+    <url>https://github.com/scandihealth/uberfire</url>
   </scm>
   <issueManagement>
     <system>jira</system>
@@ -130,6 +131,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${maven.enforcer.plugin.version}</version>
           <dependencies>
             <dependency>
               <groupId>org.codehaus.mojo</groupId>
