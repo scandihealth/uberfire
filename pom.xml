@@ -27,7 +27,7 @@
 
   <groupId>org.uberfire</groupId>
   <artifactId>uberfire-parent-metadata</artifactId>
-  <version>${revision}${changelist}</version>
+  <version>0.9.0.csc-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>UberFire parent metadata</name>
@@ -62,8 +62,6 @@
   </distributionManagement>
 
   <properties>
-    <revision>0.9.0.csc</revision>
-    <changelist>-SNAPSHOT</changelist>
     <!-- IMPORTANT: Do not declare any external dependencies versions here! Declare them in uberfire-parent-with-dependencies. -->
     <uberfire.version>${project.version}</uberfire.version>
     <!-- Exception as it is needed for gwt-maven-plugin version-->
