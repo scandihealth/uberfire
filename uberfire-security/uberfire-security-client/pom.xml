@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.uberfire</groupId>
     <artifactId>uberfire-security</artifactId>
-    <version>${revision}</version>
+    <version>0.9.0.csc-SNAPSHOT</version>
   </parent>
 
   <artifactId>uberfire-security-client</artifactId>
